@@ -1,0 +1,478 @@
+[
+    {
+        "id": 1,
+        "title": "Typing for Kids",
+        "subtitle": "Learn to Type with Tappy the Typing Cat",
+        "image": "/images/tappy-icon.png",
+        "imageAlt": "Tappy the Typing Cat",
+        "introduction": "Welcome to your interactive typing book! Swipe or use the navigation buttons to move between pages and practice your typing skills.",
+        "tips":
+        {
+            "title": "How to Use This Book",
+            "items":
+            [
+                "Start with the basic finger position exercises",
+                "Practice each exercise multiple times until comfortable",
+                "Progress through more complex exercises",
+                "Try to maintain proper posture and hand position",
+                "Have fun and celebrate your progress!"
+            ]
+        }
+    },
+    {
+        "id": 2,
+        "pageNumber": 2,
+        "sections":
+        [
+            {
+                "budget": "BUDGET - I",
+                "title": "EXERCISE - 1",
+                "contentType": "rows",
+                "content":
+                [
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ],
+                    [
+                        "asdfgf",
+                        ";lkjhj"
+                    ]
+                ]
+            },
+            {
+                "title": "EXERCISE - 2",
+                "contentType": "grid",
+                "columns": 4,
+                "content":
+                [
+                    "ask",
+                    "jak",
+                    "jag",
+                    "jak",
+                    "fad",
+                    "has",
+                    "fag",
+                    "has",
+                    "alas",
+                    "jags",
+                    "fall",
+                    "jags",
+                    "asks",
+                    "gaff",
+                    "hash",
+                    "gaff",
+                    "shad",
+                    "hall",
+                    "glad",
+                    "hall",
+                    "lads",
+                    "dash",
+                    "sags",
+                    "dash",
+                    "flags",
+                    "flash",
+                    "galls",
+                    "flash",
+                    "flask",
+                    "slash",
+                    "halls",
+                    "slash",
+                    "glass",
+                    "flasks",
+                    "salad",
+                    "flasks"
+                ]
+            },
+            {
+                "budget": "BUDGET - II",
+                "title": "EXERCISE - 3",
+                "contentType": "rows",
+                "content":
+                [
+                    [
+                        "awerqfa",
+                        ";oiupj;"
+                    ],
+                    [
+                        "awerqfa",
+                        ";oiupj;"
+                    ],
+                    [
+                        "awerqfa",
+                        ";oiupj;"
+                    ],
+                    [
+                        "awerqfa",
+                        ";oiupj;"
+                    ],
+                    [
+                        "awerqfa",
+                        ";oiupj;"
+                    ],
+                    [
+                        "awerqfa",
+                        ";oiupj;"
+                    ],
+                    [
+                        "awerqfa",
+                        ";oiupj;"
+                    ],
+                    [
+                        "awerqfa",
+                        ";oiupj;"
+                    ]
+                ]
+            }
+        ]
+    },
+    {
+        "id": 3,
+        "pageNumber": 3,
+        "sections":
+        [
+            {
+                "budget": "BUDGET - V",
+                "title": "EXERCISE - 9",
+                "contentType": "grid",
+                "columns": 2,
+                "content":
+                [
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg",
+                    "mnbvfg"
+                ]
+            },
+            {
+                "title": "EXERCISE - 10",
+                "contentType": "grid",
+                "columns": 3,
+                "content":
+                [
+                    "points",
+                    "common",
+                    "sinful",
+                    "children",
+                    "frequent",
+                    "ambition",
+                    "clockwork",
+                    "requisite",
+                    "novelties",
+                    "remittance",
+                    "attractive",
+                    "yardsticks",
+                    "punctuation",
+                    "distinction",
+                    "environment",
+                    "constitution",
+                    "arrangements",
+                    "approximately",
+                    "summer",
+                    "behalf",
+                    "exhibit",
+                    "umbrella",
+                    "armature",
+                    "relieved",
+                    "answering",
+                    "regarding",
+                    "exceeding",
+                    "foundation",
+                    "guaranteed",
+                    "sufference",
+                    "explanation",
+                    "association",
+                    "competition",
+                    "distinguished",
+                    "ornamentation",
+                    "peculiarities"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 4,
+        "pageNumber": 4,
+        "sections":
+        [
+            {
+                "budget": "BUDGET - VI",
+                "title": "EXERCISE - 11",
+                "contentType": "rows",
+                "content":
+                [
+                    [
+                        "123454",
+                        "098767"
+                    ],
+                    [
+                        "123454",
+                        "098767"
+                    ],
+                    [
+                        "123454",
+                        "098767"
+                    ],
+                    [
+                        "123454",
+                        "098767"
+                    ],
+                    [
+                        "123454",
+                        "098767"
+                    ],
+                    [
+                        "123454",
+                        "098767"
+                    ],
+                    [
+                        "123454",
+                        "098767"
+                    ],
+                    [
+                        "123454",
+                        "098767"
+                    ]
+                ]
+            },
+            {
+                "title": "EXERCISE - 12",
+                "contentType": "grid",
+                "columns": 6,
+                "content":
+                [
+                    "876",
+                    "1973",
+                    "1847",
+                    "23,846",
+                    "10,746",
+                    "1,37,946",
+                    "424",
+                    "5567",
+                    "8563",
+                    "11,200",
+                    "11,140",
+                    "7,13,345",
+                    "537",
+                    "2136",
+                    "2746",
+                    "23,476",
+                    "23,450",
+                    "14,06,786",
+                    "948",
+                    "4520",
+                    "7361",
+                    "15,409",
+                    "27,763",
+                    "18,76,432",
+                    "473",
+                    "6286",
+                    "3950",
+                    "78,796",
+                    "86,521",
+                    "20,54,362",
+                    "572",
+                    "9567",
+                    "9250",
+                    "33,489",
+                    "95,362",
+                    "31,98,453"
+                ]
+            }
+        ]
+    },
+    {
+        "id": 5,
+        "pageNumber": 8,
+        "sections":
+        [
+            {
+                "title": "EXERCISE - 13",
+                "contentType": "grid",
+                "columns": 5,
+                "content":
+                [
+                    "July",
+                    "Canada",
+                    "Gandhiji",
+                    "Minister",
+                    "Registered",
+                    "Sita",
+                    "Kerala",
+                    "Varghese",
+                    "Delivery",
+                    "Swamimalai",
+                    "Leela",
+                    "Bezwada",
+                    "Strictly",
+                    "Tamilnadu",
+                    "Department",
+                    "March",
+                    "Janatha",
+                    "Govindan",
+                    "Secretary",
+                    "Concurrence",
+                    "Raman",
+                    "Express",
+                    "Exercise",
+                    "Conferred",
+                    "Notification",
+                    "Guntur",
+                    "Prakash",
+                    "Schedule",
+                    "Government",
+                    "Confidential",
+                    "Kannan",
+                    "October",
+                    "Calcutta",
+                    "Kumbakonam",
+                    "Superintendent"
+                ]
+            },
+            {
+                "title": "EXERCISE - 14",
+                "instruction": "Type the following sentences TEN Times:",
+                "contentType": "paragraphs",
+                "content":
+                [
+                    "Lost time is never regained.",
+                    "Get up early and do your work.",
+                    "To-day's youth and to-morrow's old.",
+                    "Age is a virtue when wisdom is with it.",
+                    "Measure your word before it goes out of you.",
+                    "Children are innocent and should be guided rightly.",
+                    "Our Land had great sages who knew the eternal truth.",
+                    "Men live by deeds and not by years.",
+                    "God helps those who help themselves.",
+                    "Honest work always brings its reward.",
+                    "A man without character should not be trusted.",
+                    "Rude language speaks ill of the man who uses it.",
+                    "Never lose courage when faced with difficulties.",
+                    "It is easier to ask questions than to answer them.",
+                    "Pandit Nehru always devoted himself to public affairs."
+                ]
+            }
+        ]
+    },
+    {
+        "id": 6,
+        "pageNumber": 12,
+        "sections":
+        [
+            {
+                "title": "EXERCISE - 17",
+                "instruction": "Type the following Paragraph TEN times:",
+                "contentType": "paragraphs",
+                "content":
+                [
+                    "From the time of our BIRTH till our DEATH-KNELL is tolled, we must learn. If you WILL NOT LEARN, you CANNOT KNOW. If a teacher WILL NOT train, he CANNOT teach. When we will not let other people SCHOOL US we need SCHOOL ourselves. If we cannot learn to be cogs in a wheel we had better be QUICK and be a WHEEL WITH COGS. But life is ALL SCHOOL, and most of the FORMS ARE HARD; but this is as it should be. WE MUST LIVE AND LEARN."
+                ]
+            },
+            {
+                "title": "EXERCISE - 18",
+                "instruction": "Type each paragraph FIVE times:",
+                "contentType": "paragraphs",
+                "content":
+                [
+                    "'India is my country, all INDIANS are my BROTHERS and SISTERS. I love my country and I am proud of its rich and varied heritage. I shall always strive to be worthy of it.",
+                    "I shall give my PARENTS, TEACHERS, and ALL ELDERS respect and treat everyone with courtesy. To My Country and My People, I pledge my devotion. In their well-being and prosperity alone lies my happiness.\""
+                ]
+            },
+            {
+                "title": "EXERCISE - 19",
+                "contentType": "paragraphs",
+                "content":
+                [
+                    "Our nation has some symbols. We love and honour these symbols. The Asoka Pillar is one of these national symbols. It is our National Emblem. It is the symbol of our Government. It is a symbol of peace and love for everyone. Asoka, who was a great king of our land, wanted everyone to love others. He did not want any one to fight. We follow him.",
+                    "Our National Flag has the Asoka Chakra on it. This wheel is the symbol of DHARMA. If we always do the right things, we follow DHARMA. The twenty- four spokes in the wheel show the differences between our people. A small circle connects these spokes. It shows that we are one. The wheel also shows that we are going forward.",
+                    "Our flag is a tri-colour. Saffron is the symbol of sacrifice and a strong mind. White is the symbol of purity, love and peace. Green is the symbol of plenty and joy. We hoist and salute our flag. We are ready to make sacrifices for our coun- try. We want peace and progress. We want to be pure.",
+                    "Our National Anthem is a song of the great poet, Tagore. It was his prayer song. He sings about the people, mountains, rivers and seas of India. He says that God is the master of all these and everyone and everything in India praise him. We sing this song in chorus with respect.",
+                    "All of us salute our National Flag and sing our National Anthem. This shows that we are one nation. We also promise to love and respect our country, our parents, elders, teachers and all others in India."
+                ]
+            },
+            {
+                "title": "EXERCISE - 20",
+                "instruction": "Type each paragraph FIVE times:",
+                "contentType": "paragraphs",
+                "content":
+                [
+                    "Accidents may happen at home or in the streets. As a result, one or more persons may be injured. It is therefore wise to take some precautions to prevent accidents.",
+                    "When you walk along roads with busy traffic, some precautions are very necessary. You should never play in such roads. A boy is flying a kite in the middle of the road. People are crossing the street without caring for the moving cars or buses. Accidents will happen in such streets."
+                ]
+            }
+        ]
+    },
+    {
+        "id": 8,
+        "pageNumber": 16,
+        "sections":
+        [
+            {
+                "title": "KEYBOARD LAYOUT",
+                "instruction": "Familiarize yourself with the keyboard layout:",
+                "type": "keyboard",
+                "note": "Practice using the correct fingers for each key. Remember to keep your fingers on the home row (ASDF JKL;) when not typing."
+            },
+            {
+                "title": "TYPING TIPS",
+                "contentType": "paragraphs",
+                "content":
+                [
+                    "1. Posture\nSit up straight with your feet flat on the floor.",
+                    "2. Hand Position\nPlace your fingers on the home row (ASDF for left hand, JKL; for right hand).",
+                    "3. Eyes on Screen\nTry to look at the screen, not your hands, while typing.",
+                    "4. Rhythm\nDevelop a steady rhythm rather than typing in bursts.",
+                    "5. Practice\nRegular practice is the key to improving your typing speed and accuracy."
+                ]
+            }
+        ]
+    }
+]
