@@ -8,6 +8,7 @@ import { Decorative } from "@/components/ui/decorative"
 import { Keyboard } from "@/components/ui/keyboard"
 import { getAllPageSlugs, getPageData } from "@/lib/data"
 import type { PageData } from "@/types/page"
+import Link from "next/link"
 
 export default function Page({ params }: { params: { page: string } }) {
   const router = useRouter()
@@ -69,17 +70,30 @@ export default function Page({ params }: { params: { page: string } }) {
       {/* Header */}
       <header className="flex justify-between items-center p-4 bg-orange-400 text-white">
         <div className="flex items-center gap-2">
-          <Image
-            src="/images/tappy-icon.png"
-            alt="Tappy the Typing Cat"
-            width={40}
-            height={40}
-            className="rounded-full"
-          />
+          <Link href="/">
+            <Image
+              src="/images/tappy-icon.png"
+              alt="Tappy the Typing Cat"
+              width={40}
+              height={40}
+              className="rounded-full"
+            />
+          </Link>
           <h1 className="text-2xl font-bold">Typing for Kids</h1>
         </div>
-        <div className="text-lg font-semibold">
-          Page {currentPage} of {totalPages}
+        <div className="flex items-center gap-4">
+          <div className="text-lg font-semibold">
+            Page {currentPage} of {totalPages}
+          </div>
+          <div className="hidden md:flex gap-2">
+            <Link href="/privacy-policy" className="text-sm text-white/80 hover:text-white">
+              Privacy
+            </Link>
+            <span className="text-white/60">|</span>
+            <Link href="/colophon" className="text-sm text-white/80 hover:text-white">
+              Colophon
+            </Link>
+          </div>
         </div>
       </header>
 
@@ -231,6 +245,17 @@ export default function Page({ params }: { params: { page: string } }) {
           <span>Next</span>
           <ChevronRight size={24} />
         </button>
+      </div>
+
+      {/* Footer for mobile */}
+      <div className="md:hidden flex justify-center items-center p-2 bg-orange-400 text-white text-xs">
+        <Link href="/privacy-policy" className="mx-2 hover:underline">
+          Privacy Policy
+        </Link>
+        <span>|</span>
+        <Link href="/colophon" className="mx-2 hover:underline">
+          Colophon
+        </Link>
       </div>
     </main>
   )
