@@ -3,7 +3,7 @@ import fs from "fs/promises";
 import path from "path";
 
 const src = "./public/images/tappy-square.png"; // Icon source file path.
-const dest = "./favicons"; // Output directory path.
+const dest = "./public"; // Output directory path.
 const htmlBasename = "index.html"; // HTML file basename.
 
 const configuration = {
