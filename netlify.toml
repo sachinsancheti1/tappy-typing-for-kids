@@ -1,56 +1,74 @@
 [build]
-  command = "next build"
+  command = "pnpm run build"
   publish = ".next"
 
-# Handle 404s
-[[redirects]]
-  from = "/*"
-  to = "/404"
-  status = 404
-
-# Security headers
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Frame-Options = "DENY"
-    X-XSS-Protection = "1; mode=block"
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com https://www.clarity.ms; style-src 'self' 'unsafe-inline'; img-src 'self' data: https://www.google-analytics.com; connect-src 'self' https://www.google-analytics.com https://www.clarity.ms; font-src 'self'; frame-src 'self'; object-src 'none'"
-    Link = "</images/tappy-icon.png>; rel=preload; as=image"
-
-# Lighthouse CI plugin configuration
-[context.production.environment]
-  LIGHTHOUSE_AUDIT = "true"
-
-[context.deploy-preview.environment]
-  LIGHTHOUSE_AUDIT = "true"
-
-# Lighthouse audit settings
-[plugins.inputs.lighthouse]
-  performance = 90
-  accessibility = 90
-  best-practices = 90
-  seo = 90
-
-# Brotli compression
-[build.processing]
-  skip_processing = false
-[build.processing.css]
-  bundle = true
-  minify = true
-[build.processing.js]
-  bundle = true
-  minify = true
-[build.processing.html]
-  pretty_urls = true
-[build.processing.images]
-  compress = true
-
-# Forms handling
 [build.environment]
   NODE_ENV = "production"
 
-# Netlify form handling
+# Lighthouse plugin (global)
+[[plugins]]
+  package = "@netlify/plugin-lighthouse"
+  [plugins.inputs]
+    fail_deploy_on_score_thresholds = "true"
+  [plugins.inputs.thresholds]
+    performance        = 0.9      # 90% 
+    accessibility      = 0.9      # 90% 
+    seo                = 0.9      # 90% 
+
+# Asset processing
+[build.processing]
+  skip_processing = false
+
+[build.processing.css]
+  bundle = true
+  minify = true
+
+[build.processing.js]
+  bundle = true
+  minify = true
+
+[build.processing.html]
+  pretty_urls = true
+
+[build.processing.images]
+  compress = true
+
 [build.processing.forms]
   enabled = true
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Production context: security headers + Lighthouse env
+# ──────────────────────────────────────────────────────────────────────────────
+
+  [[headers]]
+    for = "/*"
+    [headers.values]
+      X-Frame-Options         = "DENY"
+      X-XSS-Protection        = "1; mode=block"
+      X-Content-Type-Options  = "nosniff"
+      Referrer-Policy         = "strict-origin-when-cross-origin"
+      Link                    = "</images/tappy-icon.png>; rel=preload; as=image"
+
+# ──────────────────────────────────────────────────────────────────────────────
+# Deploy-preview context: same headers + Lighthouse env
+# ──────────────────────────────────────────────────────────────────────────────
+[context.deploy-preview]
+
+  [[headers]]
+    for = "/*"
+    [headers.values]
+      X-Frame-Options         = "DENY"
+      X-XSS-Protection        = "1; mode=block"
+      X-Content-Type-Options  = "nosniff"
+      Referrer-Policy         = "strict-origin-when-cross-origin"
+      Link                    = "</images/tappy-icon.png>; rel=preload; as=image"
+
+[dev]
+  # start your Next.js app
+  command    = "pnpm dev"
+  # the port netlify dev will open in your browser
+  port       = 8888
+  # the port your framework (Next.js) listens on
+  targetPort = 3000
+  # tell Netlify Dev this is Next.js
+  framework  = "next"
