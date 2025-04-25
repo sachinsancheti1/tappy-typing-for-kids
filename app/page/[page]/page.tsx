@@ -6,16 +6,24 @@ import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Decorative } from "@/components/ui/decorative"
 import { Keyboard } from "@/components/ui/keyboard"
+import { use } from "react"
 import { getAllPageSlugs, getPageData } from "@/lib/data"
 import type { PageData } from "@/types/page"
 import Link from "next/link"
 
-export default function Page({ params }: { params: { page: string } }) {
-  const router = useRouter()
-  const currentPage = Number.parseInt(params.page)
-  const [pageData, setPageData] = useState<PageData | null>(null)
+interface PageProps {
+  params: Promise<{ page: string }>
+}
+
+export default function Page({ params }: PageProps) {
+  // this hook unwraps the Promise for us
+  const { page: pageStr } = use(params)
+  const currentPage      = parseInt(pageStr, 10)
+
+  const [pageData, setPageData]   = useState<PageData | null>(null)
   const [totalPages, setTotalPages] = useState(0)
-  const [loading, setLoading] = useState(true)
+  const [loading, setLoading]     = useState(true)
+  const router = useRouter()
 
   useEffect(() => {
     const slugs = getAllPageSlugs()
@@ -31,6 +39,7 @@ export default function Page({ params }: { params: { page: string } }) {
       router.push(`/page/${currentPage + 1}`)
     }
   }
+
 
   const prevPage = () => {
     if (currentPage > 1) {

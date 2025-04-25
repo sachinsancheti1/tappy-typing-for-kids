@@ -52,23 +52,3 @@
 # ──────────────────────────────────────────────────────────────────────────────
 # Deploy-preview context: same headers + Lighthouse env
 # ──────────────────────────────────────────────────────────────────────────────
-[context.deploy-preview]
-
-  [[headers]]
-    for = "/*"
-    [headers.values]
-      X-Frame-Options         = "DENY"
-      X-XSS-Protection        = "1; mode=block"
-      X-Content-Type-Options  = "nosniff"
-      Referrer-Policy         = "strict-origin-when-cross-origin"
-      Link                    = "</images/tappy-icon.png>; rel=preload; as=image"
-
-[dev]
-  # start your Next.js app
-  command    = "pnpm dev"
-  # the port netlify dev will open in your browser
-  port       = 8888
-  # the port your framework (Next.js) listens on
-  targetPort = 3000
-  # tell Netlify Dev this is Next.js
-  framework  = "next"
