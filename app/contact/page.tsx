@@ -1,14 +1,14 @@
 // app/page.tsx
+export const dynamic = 'force-static'; // ensures this page is prerendered at build time
 
-export const dynamic = 'force-static';
-
-import { headers } from "next/headers"
-import Link from "next/link"
-import type { Metadata } from "next"
+import { headers } from 'next/headers'
+import Link from 'next/link'
+import type { Metadata } from 'next'
+import ContactForm from './ContactForm'  // see next section
 
 export const metadata: Metadata = {
-  title: "Contact Us – Typing for Kids",
-  description: "Get in touch with the Typing for Kids team",
+  title: 'Contact Us – Typing for Kids',
+  description: 'Get in touch with the Typing for Kids team',
 }
 
 interface PageProps {
@@ -16,12 +16,12 @@ interface PageProps {
 }
 
 export default function ContactPage({ searchParams }: PageProps) {
-  const isSuccess = searchParams.success === "true"
+  const isSuccess = searchParams.success === 'true'
 
-  // Grab host → domain on the server
+  // Get domain on the server
   const h = headers()
-  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "tappytyping.com"
-  const domain = host.split(":")[0]
+  const host = h.get('x-forwarded-host') ?? h.get('host') ?? 'tappytyping.com'
+  const domain = host.split(':')[0]
 
   return (
     <main className="min-h-screen bg-orange-50">
@@ -61,73 +61,7 @@ export default function ContactPage({ searchParams }: PageProps) {
               </p>
             </div>
           ) : (
-            <form
-              name="contact"
-              method="POST"
-              data-netlify="true"
-              data-netlify-honeypot="bot-field"
-              action="?success=true"
-              className="bg-white p-6 rounded-lg shadow-md space-y-4"
-            >
-              {/* Netlify magic inputs */}
-              <input type="hidden" name="form-name" value="contact" />
-              <input type="hidden" name="domain" value={domain} />
-              <p className="hidden">
-                <label>
-                  Don’t fill this out if you’re human: <input name="bot-field" />
-                </label>
-              </p>
-
-              {/* Name */}
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1">
-                  Name
-                </label>
-                <input
-                  id="name"
-                  name="name"
-                  type="text"
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-200"
-                />
-              </div>
-
-              {/* Email */}
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                  Email
-                </label>
-                <input
-                  id="email"
-                  name="email"
-                  type="email"
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-200"
-                />
-              </div>
-
-              {/* Message */}
-              <div>
-                <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-1">
-                  Message
-                </label>
-                <textarea
-                  id="message"
-                  name="message"
-                  rows={4}
-                  required
-                  className="w-full px-3 py-2 border border-gray-300 rounded-md focus:ring focus:ring-orange-200"
-                />
-              </div>
-
-              {/* Submit */}
-              <button
-                type="submit"
-                className="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 rounded-md"
-              >
-                Send Message
-              </button>
-            </form>
+            <ContactForm domain={domain} />
           )}
         </div>
       </div>
