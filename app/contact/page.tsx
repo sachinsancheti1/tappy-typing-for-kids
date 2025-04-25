@@ -3,7 +3,6 @@
 import { headers } from "next/headers"
 import Link from "next/link"
 import type { Metadata } from "next"
-import "./globals.css"
 
 export const metadata: Metadata = {
   title: "Contact Us – Typing for Kids",
