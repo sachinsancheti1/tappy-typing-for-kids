@@ -24,7 +24,7 @@ export default function PrivacyPolicy() {
             Welcome to Typing for Kids ("we," "our," or "us"). We are committed to protecting your privacy and personal
             information. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when
             you visit our website typing-for-kids.netlify.app, including any other media form, media channel, mobile
-            website, or mobile application related or connected thereto (collectively, the "Site").
+            website, or mobile application related or connected thereto (collectively, the &quot;Site&quot;).
           </p>
           <p className="mb-4">
             Please read this privacy policy carefully. If you do not agree with the terms of this privacy policy, please

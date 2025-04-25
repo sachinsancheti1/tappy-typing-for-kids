@@ -40,7 +40,6 @@ export default function Page({ params }: PageProps) {
     }
   }
 
-
   const prevPage = () => {
     if (currentPage > 1) {
       router.push(`/page/${currentPage - 1}`)
