@@ -81,15 +81,20 @@ export default function PrivacyPolicy() {
           <h3 className="text-xl font-bold text-orange-500 mt-6 mb-3">Microsoft Clarity</h3>
           <p className="mb-4">
             Microsoft Clarity is a user behavior analytics tool that helps us understand how users interact with our
-            website. It uses session replay technology to recreate a user's journey on our website and provides heatmaps
+            website. It uses session replay technology to recreate a user&apos;s journey on our website and provides heatmaps
             to visualize where users click, scroll, and spend time.
           </p>
 
-          <h2 className="text-2xl font-bold text-purple-600 mt-8 mb-4">5. Children's Privacy</h2>
+          <h2 className="text-2xl font-bold text-purple-600 mt-8 mb-4">5. Children&apos;s Privacy</h2>
           <p className="mb-4">
             Our Service is intended for use by children, but only with parental supervision. We do not knowingly collect
             personally identifiable information from children under 13 without parental consent. If you are a parent or
-            guardian and you are aware that your child has provided us with personal data, please contact us. If we
+            guardian and you are aware that your child has provided us with personal data, please <Link
+          href="/contact"
+          className="text-orange-400 hover:text-orange-600  font-bold transition-colors"
+        >
+          Contact Us
+        </Link>. If we
             become aware that we have collected personal data from children without verification of parental consent, we
             take steps to remove that information from our servers.
           </p>
@@ -97,11 +102,16 @@ export default function PrivacyPolicy() {
           <h2 className="text-2xl font-bold text-purple-600 mt-8 mb-4">6. Changes to This Privacy Policy</h2>
           <p className="mb-4">
             We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new
-            Privacy Policy on this page and updating the "Last Updated" date at the top of this Privacy Policy.
+            Privacy Policy on this page and updating the &quot;Last Updated&quot; date at the top of this Privacy Policy.
           </p>
 
           <h2 className="text-2xl font-bold text-purple-600 mt-8 mb-4">7. Contact Us</h2>
-          <p className="mb-4">If you have any questions about this Privacy Policy, please contact us on the website form.</p>
+          <p className="mb-4">If you have any questions about this Privacy Policy, please <Link
+          href="/contact"
+          className="text-orange-400 hover:text-orange-600  font-bold transition-colors"
+        >
+          Contact Us
+        </Link> on the website form.</p>
         </div>
       </div>
     </main>
