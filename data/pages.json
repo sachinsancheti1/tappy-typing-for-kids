@@ -6,11 +6,9 @@
         "image": "/images/tappy-icon.png",
         "imageAlt": "Tappy the Typing Cat",
         "introduction": "Welcome to your interactive typing book! Swipe or use the navigation buttons to move between pages and practice your typing skills.",
-        "tips":
-        {
+        "tips": {
             "title": "How to Use This Book",
-            "items":
-            [
+            "items": [
                 "Start with the basic finger position exercises",
                 "Practice each exercise multiple times until comfortable",
                 "Progress through more complex exercises",
@@ -22,14 +20,12 @@
     {
         "id": 2,
         "pageNumber": 2,
-        "sections":
-        [
+        "sections": [
             {
                 "budget": "BUDGET - I",
                 "title": "EXERCISE - 1",
                 "contentType": "rows",
-                "content":
-                [
+                "content": [
                     [
                         "asdfgf",
                         ";lkjhj"
@@ -76,8 +72,7 @@
                 "title": "EXERCISE - 2",
                 "contentType": "grid",
                 "columns": 4,
-                "content":
-                [
+                "content": [
                     "ask",
                     "jak",
                     "jag",
@@ -120,8 +115,7 @@
                 "budget": "BUDGET - II",
                 "title": "EXERCISE - 3",
                 "contentType": "rows",
-                "content":
-                [
+                "content": [
                     [
                         "awerqfa",
                         ";oiupj;"
@@ -160,8 +154,7 @@
                 "title": "EXERCISE - 4",
                 "contentType": "grid",
                 "columns": 6,
-                "content":
-                [
+                "content": [
                     "fish",
                     "dead",
                     "idols",
@@ -232,14 +225,12 @@
     {
         "id": 3,
         "pageNumber": 3,
-        "sections":
-        [
+        "sections": [
             {
                 "budget": "BUDGET - III",
                 "title": "EXERCISE - 5",
                 "contentType": "rows",
-                "content":
-                [
+                "content": [
                     [
                         "gftfrf",
                         "hjyjuj"
@@ -282,13 +273,11 @@
                     ]
                 ]
             },
-
             {
                 "title": "EXERCISE - 6",
                 "contentType": "grid",
                 "columns": 6,
-                "content":
-                [
+                "content": [
                     "lawyers",
                     "shekels",
                     "hatless",
@@ -355,8 +344,7 @@
                 "budget": "BUDGET - IV",
                 "title": "EXERCISE - 7",
                 "contentType": "rows",
-                "content":
-                [
+                "content": [
                     [
                         "azxcvf",
                         "lkmnbj"
@@ -403,8 +391,7 @@
                 "title": "EXERCISE - 8",
                 "contentType": "grid",
                 "columns": 6,
-                "content":
-                [
+                "content": [
                     "amazed",
                     "except",
                     "logical",
@@ -472,8 +459,7 @@
                 "title": "EXERCISE - 9",
                 "contentType": "grid",
                 "columns": 2,
-                "content":
-                [
+                "content": [
                     "mnbvfg",
                     "mnbvfg",
                     "mnbvfg",
@@ -500,8 +486,7 @@
                 "title": "EXERCISE - 10",
                 "contentType": "grid",
                 "columns": 3,
-                "content":
-                [
+                "content": [
                     "points",
                     "common",
                     "sinful",
@@ -545,14 +530,12 @@
     {
         "id": 4,
         "pageNumber": 4,
-        "sections":
-        [
+        "sections": [
             {
                 "budget": "BUDGET - VI",
                 "title": "EXERCISE - 11",
                 "contentType": "rows",
-                "content":
-                [
+                "content": [
                     [
                         "123454",
                         "098767"
@@ -591,8 +574,7 @@
                 "title": "EXERCISE - 12",
                 "contentType": "grid",
                 "columns": 6,
-                "content":
-                [
+                "content": [
                     "876",
                     "1973",
                     "1847",
@@ -636,14 +618,12 @@
     {
         "id": 5,
         "pageNumber": 5,
-        "sections":
-        [
+        "sections": [
             {
                 "title": "EXERCISE - 13",
                 "contentType": "grid",
                 "columns": 5,
-                "content":
-                [
+                "content": [
                     "July",
                     "Canada",
                     "Gandhiji",
@@ -685,8 +665,7 @@
                 "title": "EXERCISE - 14",
                 "instruction": "Type the following sentences TEN Times:",
                 "contentType": "paragraphs",
-                "content":
-                [
+                "content": [
                     "Lost time is never regained.",
                     "Get up early and do your work.",
                     "To-day's youth and to-morrow's old.",
@@ -708,37 +687,35 @@
                 "title": "EXERCISE - 15",
                 "instruction": "Type each of the following sentences TWENTY times:",
                 "contentType": "paragraphs",
-                "content":
-                [
-                    "Pack my box with five dozen liquor jugs.",
-                    "A quick brown fox slowly jumped over the lazy dog.",
-                    "Petty quiz badly vexes chuffy worker, hungry James.",
-                    "Five prizes were quickly distributed by the judge to examinees.",
-                    "Gay men with extra pluck and zeal would often have quiet jobs.",
-                    "Black-market fugitive should be quickly expelled with zeal by any just society.",
-                    "Quiet Parsi fugitives in Indias extolled justly their most watched book, Zend Avesta.",
-                    "May we have Jack Squires fix the big lamps for Andy Ziegler?",
-                    "Ramji worked with zeal and vigour, to protect his quietful subjects excellently well.",
-                    "Handy Jack’s quixotic laziness may grow to be far expensive."
+                "content": [
+                    "Pack my box with five dozen fresh fruits.",
+                    "A quick brown fox swiftly jumps over the lazy dog.",
+                    "Joyful quizzes brightly motivate careful students every day.",
+                    "Five awards were quickly given by judges to skilled winners.",
+                    "Great minds with courage and kindness make quiet changes.",
+                    "Good citizens are valued highly by a fair society.",
+                    "Quiet writers in towns greatly respect their favorite books.",
+                    "Could we ask Jane Smith to fix the lamps quickly?",
+                    "Rohan worked diligently and calmly to help his neighbors.",
+                    "Creative thinking can sometimes lead to brilliant ideas."
                 ]
             },
             {
                 "title": "EXERCISE - 16",
                 "instruction": "Type each of the following sentences TEN times:",
                 "contentType": "paragraphs",
-                "content":
-                [
+                "content": [
                     "The French Revolution was in 1789.",
                     "The partition of India affected more than 50% of our people.",
                     "I gave him a cheque for Rs.100.50 P.",
                     "Rice was sold @ Rs.325/- per bag.",
-                    "Every Indian said, ‘Partition is bad’.",
+                    "Every Indian said, \u2018Partition is bad\u2019.",
                     "Messrs. Raman & Co., Ltd., were great toy-makers.",
                     "Raman got 3/4 and Krishna 1/4 of their shares.",
-                    "The cost of a good clock is £ 2.",
+                    "The cost of a good clock is \u00a3 2.",
                     "Rajan & Kumaran sailed on 2nd February 1960 for England.",
                     "Have you seen my brother-in-law Ramachary?",
-                    "Received 5 sets of Typist’s Tables (2' - 6'') & chairs (1' - 6'').",
+                    "Received 5 sets of Typist\u2019s Tables (2' - 6'') & chairs (1' - 6'').",
                     "Leave 2 spaces after (.) (!?)"
                 ]
             }
@@ -747,14 +724,12 @@
     {
         "id": 6,
         "pageNumber": 6,
-        "sections":
-        [
+        "sections": [
             {
                 "title": "EXERCISE - 17",
                 "instruction": "Type the following Paragraph TEN times:",
                 "contentType": "paragraphs",
-                "content":
-                [
+                "content": [
                     "From the time of our BIRTH till our DEATH-KNELL is tolled, we must learn. If you WILL NOT LEARN, you CANNOT KNOW. If a teacher WILL NOT train, he CANNOT teach. When we will not let other people SCHOOL US we need SCHOOL ourselves. If we cannot learn to be cogs in a wheel we had better be QUICK and be a WHEEL WITH COGS. But life is ALL SCHOOL, and most of the FORMS ARE HARD; but this is as it should be. WE MUST LIVE AND LEARN."
                 ]
             },
@@ -762,8 +737,7 @@
                 "title": "EXERCISE - 18",
                 "instruction": "Type each paragraph FIVE times:",
                 "contentType": "paragraphs",
-                "content":
-                [
+                "content": [
                     "'India is my country, all INDIANS are my BROTHERS and SISTERS. I love my country and I am proud of its rich and varied heritage. I shall always strive to be worthy of it.",
                     "I shall give my PARENTS, TEACHERS, and ALL ELDERS respect and treat everyone with courtesy. To My Country and My People, I pledge my devotion. In their well-being and prosperity alone lies my happiness.\""
                 ]
@@ -771,8 +745,7 @@
             {
                 "title": "EXERCISE - 19",
                 "contentType": "paragraphs",
-                "content":
-                [
+                "content": [
                     "Our nation has some symbols. We love and honour these symbols. The Asoka Pillar is one of these national symbols. It is our National Emblem. It is the symbol of our Government. It is a symbol of peace and love for everyone. Asoka, who was a great king of our land, wanted everyone to love others. He did not want any one to fight. We follow him.",
                     "Our National Flag has the Asoka Chakra on it. This wheel is the symbol of DHARMA. If we always do the right things, we follow DHARMA. The twenty- four spokes in the wheel show the differences between our people. A small circle connects these spokes. It shows that we are one. The wheel also shows that we are going forward.",
                     "Our flag is a tri-colour. Saffron is the symbol of sacrifice and a strong mind. White is the symbol of purity, love and peace. Green is the symbol of plenty and joy. We hoist and salute our flag. We are ready to make sacrifices for our coun- try. We want peace and progress. We want to be pure.",
@@ -784,8 +757,7 @@
                 "title": "EXERCISE - 20",
                 "instruction": "Type each paragraph FIVE times:",
                 "contentType": "paragraphs",
-                "content":
-                [
+                "content": [
                     "Accidents may happen at home or in the streets. As a result, one or more persons may be injured. It is therefore wise to take some precautions to prevent accidents.",
                     "When you walk along roads with busy traffic, some precautions are very necessary. You should never play in such roads. A boy is flying a kite in the middle of the road. People are crossing the street without caring for the moving cars or buses. Accidents will happen in such streets.",
                     "A father is riding on a bicycle with two of his children. You may have sometimes seen two or three youngsters riding on a bicycle or a scooter. Such riding is dangerous to the riders. It is also dangerous to other road users.",
@@ -801,8 +773,7 @@
     {
         "id": 7,
         "pageNumber": 7,
-        "sections":
-        [
+        "sections": [
             {
                 "title": "KEYBOARD LAYOUT",
                 "instruction": "Familiarize yourself with the keyboard layout:",
@@ -812,8 +783,7 @@
             {
                 "title": "TYPING TIPS",
                 "contentType": "paragraphs",
-                "content":
-                [
+                "content": [
                     "1. Posture\nSit up straight with your feet flat on the floor.",
                     "2. Hand Position\nPlace your fingers on the home row (ASDF for left hand, JKL; for right hand).",
                     "3. Eyes on Screen\nTry to look at the screen, not your hands, while typing.",
