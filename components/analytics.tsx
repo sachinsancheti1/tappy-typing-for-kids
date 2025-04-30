@@ -4,11 +4,13 @@ import { useEffect, useState } from "react"
 import Script from "next/script"
 import { usePathname, useSearchParams } from "next/navigation"
 
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID
+
 export function Analytics() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [domain, setDomain] = useState("")
-
+  
   useEffect(() => {
     // Get the current hostname for domain-specific tracking
     setDomain(window.location.hostname)
@@ -51,7 +53,10 @@ export function Analytics() {
       />
 
       {/* Google Analytics 4 */}
-      <Script strategy="afterInteractive" src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX" />
+      <Script
+        strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtag/js?id=${GA_MEASUREMENT_ID}`}
+      />
       <Script
         id="ga4-script"
         strategy="afterInteractive"
@@ -60,7 +65,7 @@ export function Analytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             gtag('js', new Date());
-            gtag('config', 'G-XXXXXXXXXX', {
+            gtag('config', '${GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
               cookie_flags: 'SameSite=None;Secure',
               custom_map: {
@@ -82,7 +87,7 @@ export function Analytics() {
                 c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
                 t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
                 y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "XXXXXXXXXX");
+            })(window, document, "clarity", "script", "rc05rq4mqc");
             
             // Set domain as a custom tag for Clarity
             if (window.clarity) {
