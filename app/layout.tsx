@@ -112,6 +112,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         >
           <Suspense>
             {children}
+            <CookieConsent />
+            <Analytics />
           </Suspense>
         </ThemeProvider>
       </body>
