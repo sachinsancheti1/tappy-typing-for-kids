@@ -13,6 +13,29 @@ export default function Home() {
     // Get all page slugs and redirect to the first page
     const slugs = getAllPageSlugs()
     setTotalPages(slugs.length)
+
+    // Check if we have progress data to determine the last page visited
+    if (typeof window !== "undefined") {
+      try {
+        const progressData = localStorage.getItem("typing_progress")
+        if (progressData) {
+          const results = JSON.parse(progressData)
+          if (results.length > 0) {
+            // Find the most recent page visited
+            const sortedResults = [...results].sort(
+              (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
+            )
+            const lastPageVisited = sortedResults[0].pageNumber
+            router.push(`/page/${lastPageVisited}`)
+            return
+          }
+        }
+      } catch (error) {
+        console.error("Error reading progress data:", error)
+      }
+    }
+
+    // Default to first page if no progress data
     router.push(`/page/1`)
   }, [router])
 
@@ -35,7 +58,9 @@ export default function Home() {
 
       {/* Loading State */}
       <div className="flex-1 flex items-center justify-center">
-        <div className="text-2xl font-bold text-orange-500">Loading typing book...</div>
+        <div className="text-2xl font-bold text-orange-500">
+          Loading typing book...
+        </div>
       </div>
     </main>
   )

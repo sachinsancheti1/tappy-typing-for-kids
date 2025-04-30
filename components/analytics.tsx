@@ -10,7 +10,7 @@ export function Analytics() {
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const [domain, setDomain] = useState("")
-  
+
   useEffect(() => {
     // Get the current hostname for domain-specific tracking
     setDomain(window.location.hostname)
@@ -118,7 +118,7 @@ declare global {
       action: string,
       params: {
         [key: string]: any
-      },
+      }
     ) => void
     dataLayer: any[]
     clarity: (command: string, key: string, value: string) => void

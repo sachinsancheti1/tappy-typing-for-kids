@@ -1,45 +1,38 @@
 import type React from "react"
-import "./globals.css"
-import { Inter } from "next/font/google"
-import { ThemeProvider } from "@/components/theme-provider"
 import type { Metadata } from "next"
-import { Analytics } from "@/components/analytics"
-import { CookieConsent } from "@/components/cookie-consent"
-import { SchemaMarkup } from "@/components/schema-markup"
-import { Suspense } from "react"
 import { headers } from "next/headers"
-
-const inter = Inter({ subsets: ["latin"] })
+import RootClientLayout from "./root-client-layout"
 
 export async function generateMetadata(): Promise<Metadata> {
   // Get the hostname from the request headers
   const headersList = await headers()
   const rawHost =
     // try x-forwarded-host first (when behind a proxy)
-    headersList.get('x-forwarded-host')
-      // fall back to the standard Host header
-      ?? headersList.get('host')
-      // final fallback for static exports
-      ?? 'tappytyping.com'
+    headersList.get("x-forwarded-host") ??
+    // fall back to the standard Host header
+    headersList.get("host") ??
+    // final fallback for static exports
+    "tappytyping.com"
 
   // strip off any :port
-  const hostname = rawHost.split(':')[0]
+  const hostname = rawHost.split(":")[0]
 
   // use http in dev, https everywhere else
-  const protocol = process.env.NODE_ENV === 'development' ? 'http:' : 'https:'
+  const protocol = process.env.NODE_ENV === "development" ? "http:" : "https:"
 
   const baseUrl = `${protocol}//${hostname}`
 
   // detect your “primary” vs “alternate” domains
-  const isPrimary = hostname === 'tappytyping.com'
-  const primaryDomain   = isPrimary ? baseUrl : 'https://tappytyping.com'
-  const alternateDomain = isPrimary ? 'https://learntyping.fun' : baseUrl
+  const isPrimary = hostname === "tappytyping.com"
+  const primaryDomain = isPrimary ? baseUrl : "https://tappytyping.com"
+  const alternateDomain = isPrimary ? "https://learntyping.fun" : baseUrl
 
   return {
     title: "Typing for Kids - Interactive Typing Book",
     description:
       "An interactive typing book experience optimized for iPad, helping children learn to type with fun exercises",
-    keywords: "typing for kids, learn typing, typing exercises, children typing, typing practice, typing book",
+    keywords:
+      "typing for kids, learn typing, typing exercises, children typing, typing practice, typing book",
     authors: [{ name: "Typing for Kids Team" }],
     creator: "Typing for Kids Team",
     publisher: "Typing for Kids",
@@ -93,30 +86,12 @@ export async function generateMetadata(): Promise<Metadata> {
   }
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
-  return (
-    <html
-      lang="en"
-      className="light"                   // <-- match the server’s defaultTheme
-      style={{ colorScheme: "light" }}    // <-- match next-themes’ inline style
-      suppressHydrationWarning             // <-- optional, silences any stray warnings
-    >
-      <head>
-        <SchemaMarkup />
-      </head>
-      <body className={inter.className}>
-        <ThemeProvider
-          attribute="class"
-          defaultTheme="light"             // <-- ensure SSR uses “light” always
-          enableSystem
-        >
-          <Suspense>
-            {children}
-            <CookieConsent />
-            <Analytics />
-          </Suspense>
-        </ThemeProvider>
-      </body>
-    </html>
-  )
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode
+}) {
+  return <RootClientLayout>{children}</RootClientLayout>
 }
+
+import "./globals.css"

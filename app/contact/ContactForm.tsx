@@ -1,43 +1,47 @@
 // app/ContactForm.tsx
-'use client'
+"use client"
 
-import React, { FormEvent, useState } from 'react'
-import { Send } from 'lucide-react'
+import { type FormEvent, useState } from "react"
+import { Send } from "lucide-react"
 
 interface Props {
   domain: string
 }
 
 export default function ContactForm({ domain }: Props) {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
+  const [status, setStatus] = useState<
+    "idle" | "submitting" | "success" | "error"
+  >("idle")
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    setStatus('submitting')
+    setStatus("submitting")
 
     const formData = new FormData(e.currentTarget)
-    formData.set('form-name', 'contact')
-    formData.set('bot-field', '')
-    formData.set('domain', domain)
+    formData.set("form-name", "contact")
+    formData.set("bot-field", "")
+    formData.set("domain", domain)
 
     try {
-      const res = await fetch('/__forms.html', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      const res = await fetch("/__forms.html", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
         body: new URLSearchParams(formData as any).toString(),
       })
       if (res.ok) {
-        setStatus('success')
+        setStatus("success")
         e.currentTarget.reset()
       } else {
-        setStatus('error')
+        setStatus("error")
       }
     } catch {
-      setStatus('error')
+      setStatus("error")
     }
   }
 
-  if (status === 'success') {
+  if (status === "success") {
     return (
       <div className="bg-white p-6 rounded-lg shadow-md text-center">
         <h2 className="text-2xl font-bold text-orange-500 mb-4">
@@ -92,13 +96,14 @@ export default function ContactForm({ domain }: Props) {
 
       <button
         type="submit"
-        disabled={status === 'submitting'}
+        disabled={status === "submitting"}
         className="w-full bg-orange-500 hover:bg-orange-600 text-white py-2 rounded disabled:opacity-50"
       >
-        {status === 'submitting' ? 'Sending…' : 'Send Message'} <Send size={16} />
+        {status === "submitting" ? "Sending…" : "Send Message"}{" "}
+        <Send size={16} />
       </button>
 
-      {status === 'error' && (
+      {status === "error" && (
         <p className="text-red-600 text-sm">Oops! Please try again.</p>
       )}
     </form>

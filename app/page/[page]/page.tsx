@@ -6,23 +6,25 @@ import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Decorative } from "@/components/ui/decorative"
 import { Keyboard } from "@/components/ui/keyboard"
-import { use } from "react"
 import { getAllPageSlugs, getPageData } from "@/lib/data"
 import type { PageData } from "@/types/page"
 import Link from "next/link"
+import { Button } from "@/components/ui/button"
+import { PracticeMode } from "@/components/practice-mode"
 
 interface PageProps {
-  params: Promise<{ page: string }>
+  params: { page: string }
 }
 
 export default function Page({ params }: PageProps) {
-  // this hook unwraps the Promise for us
-  const { page: pageStr } = use(params)
-  const currentPage      = parseInt(pageStr, 10)
+  const currentPage = Number.parseInt(params.page, 10)
 
-  const [pageData, setPageData]   = useState<PageData | null>(null)
+  const [pageData, setPageData] = useState<PageData | null>(null)
   const [totalPages, setTotalPages] = useState(0)
-  const [loading, setLoading]     = useState(true)
+  const [loading, setLoading] = useState(true)
+  const [practiceMode, setPracticeMode] = useState(false)
+  const [practiceContent, setPracticeContent] = useState<string | string[]>("")
+  const [currentExerciseTitle, setCurrentExerciseTitle] = useState("")
   const router = useRouter()
 
   useEffect(() => {
@@ -50,6 +52,12 @@ export default function Page({ params }: PageProps) {
     router.push(`/page/${pageNumber}`)
   }
 
+  const startPractice = (content: string | string[], exerciseTitle: string) => {
+    setPracticeContent(content)
+    setCurrentExerciseTitle(exerciseTitle)
+    setPracticeMode(true)
+  }
+
   if (loading || !pageData) {
     return (
       <main className="h-screen w-screen flex flex-col bg-orange-100 overflow-hidden">
@@ -67,7 +75,9 @@ export default function Page({ params }: PageProps) {
           <div className="text-lg font-semibold">Loading...</div>
         </header>
         <div className="flex-1 flex items-center justify-center">
-          <div className="text-2xl font-bold text-orange-500">Loading page...</div>
+          <div className="text-2xl font-bold text-orange-500">
+            Loading page...
+          </div>
         </div>
       </main>
     )
@@ -94,11 +104,24 @@ export default function Page({ params }: PageProps) {
             Page {currentPage} of {totalPages}
           </div>
           <div className="hidden md:flex gap-2">
-            <Link href="/privacy-policy" className="text-sm text-white/80 hover:text-white">
+            <Link
+              href="/progress"
+              className="text-sm text-white/80 hover:text-white"
+            >
+              Progress
+            </Link>
+            <span className="text-white/60">|</span>
+            <Link
+              href="/privacy-policy"
+              className="text-sm text-white/80 hover:text-white"
+            >
               Privacy
             </Link>
             <span className="text-white/60">|</span>
-            <Link href="/colophon" className="text-sm text-white/80 hover:text-white">
+            <Link
+              href="/colophon"
+              className="text-sm text-white/80 hover:text-white"
+            >
               Colophon
             </Link>
           </div>
@@ -122,11 +145,15 @@ export default function Page({ params }: PageProps) {
                 )}
 
                 {pageData.title && (
-                  <h1 className="text-4xl font-bold text-orange-500 mb-4 text-center">{pageData.title}</h1>
+                  <h1 className="text-4xl font-bold text-orange-500 mb-4 text-center">
+                    {pageData.title}
+                  </h1>
                 )}
 
                 {pageData.subtitle && (
-                  <h2 className="text-2xl font-semibold text-purple-600 text-center mb-8">{pageData.subtitle}</h2>
+                  <h2 className="text-2xl font-semibold text-purple-600 text-center mb-8">
+                    {pageData.subtitle}
+                  </h2>
                 )}
 
                 {pageData.image && (
@@ -143,7 +170,9 @@ export default function Page({ params }: PageProps) {
                 )}
 
                 {pageData.introduction && (
-                  <p className="text-lg text-gray-700 mt-4 text-center mb-8">{pageData.introduction}</p>
+                  <p className="text-lg text-gray-700 mt-4 text-center mb-8">
+                    {pageData.introduction}
+                  </p>
                 )}
 
                 {pageData.sections &&
@@ -151,44 +180,112 @@ export default function Page({ params }: PageProps) {
                     <div key={index} className="mb-8">
                       {section.budget && (
                         <div className="flex justify-between items-center mb-6">
-                          <h2 className="text-2xl font-bold text-purple-600">{section.budget}</h2>
+                          <h2 className="text-2xl font-bold text-purple-600">
+                            {section.budget}
+                          </h2>
                         </div>
                       )}
 
-                      {section.title && <h3 className="text-xl font-bold text-orange-500 mb-4">{section.title}</h3>}
+                      {section.title && (
+                        <h3 className="text-xl font-bold text-orange-500 mb-4">
+                          {section.title}
+                        </h3>
+                      )}
 
-                      {section.instruction && <p className="mb-4 font-semibold text-gray-700">{section.instruction}</p>}
+                      {section.instruction && (
+                        <p className="mb-4 font-semibold text-gray-700">
+                          {section.instruction}
+                        </p>
+                      )}
 
                       {section.content && (
                         <div className="bg-gray-50 p-4 rounded-lg font-mono text-lg">
                           {section.contentType === "grid" && (
-                            <div className={`grid grid-cols-${section.columns || 3} gap-4`}>
-                              {section.content.map((item, i) => (
-                                <span key={i}>{item}</span>
-                              ))}
-                            </div>
+                            <>
+                              <div
+                                className={`grid grid-cols-${section.columns || 3} gap-4`}
+                              >
+                                {section.content.map((item, i) => (
+                                  <span key={i}>{item}</span>
+                                ))}
+                              </div>
+                              <div className="mt-4 flex justify-end">
+                                <Button
+                                  onClick={() =>
+                                    startPractice(
+                                      section.content,
+                                      section.title || `Exercise ${index + 1}`
+                                    )
+                                  }
+                                  className="bg-orange-500 hover:bg-orange-600"
+                                >
+                                  Practice This Exercise
+                                </Button>
+                              </div>
+                            </>
                           )}
 
                           {section.contentType === "rows" && (
-                            <div className="space-y-2">
-                              {section.content.map((item, i) => (
-                                <div key={i} className="flex justify-center space-x-8 mb-2">
-                                  {Array.isArray(item) ? (
-                                    item.map((subItem, j) => <span key={j}>{subItem}</span>)
-                                  ) : (
-                                    <span>{item}</span>
-                                  )}
-                                </div>
-                              ))}
-                            </div>
+                            <>
+                              <div className="space-y-2">
+                                {section.content.map((item, i) => (
+                                  <div
+                                    key={i}
+                                    className="flex justify-center space-x-8 mb-2"
+                                  >
+                                    {Array.isArray(item) ? (
+                                      item.map((subItem, j) => (
+                                        <span key={j}>{subItem}</span>
+                                      ))
+                                    ) : (
+                                      <span>{item}</span>
+                                    )}
+                                  </div>
+                                ))}
+                              </div>
+                              <div className="mt-4 flex justify-end">
+                                <Button
+                                  onClick={() =>
+                                    startPractice(
+                                      Array.isArray(section.content[0])
+                                        ? section.content.map((row) =>
+                                            Array.isArray(row)
+                                              ? row.join(" ")
+                                              : row
+                                          )
+                                        : section.content,
+                                      section.title || `Exercise ${index + 1}`
+                                    )
+                                  }
+                                  className="bg-orange-500 hover:bg-orange-600"
+                                >
+                                  Practice This Exercise
+                                </Button>
+                              </div>
+                            </>
                           )}
 
                           {section.contentType === "paragraphs" && (
-                            <div className="space-y-3">
-                              {section.content.map((item, i) => (
-                                <p key={i}>{item}</p>
-                              ))}
-                            </div>
+                            <>
+                              <div className="space-y-3">
+                                {section.content.map((item, i) => (
+                                  <p key={i}>{item}</p>
+                                ))}
+                              </div>
+                              <div className="mt-4 flex justify-end">
+                                <Button
+                                  onClick={() =>
+                                    startPractice(
+                                      section.content,
+                                      section.title || `Exercise ${index + 1}`
+                                    )
+                                  }
+                                  className="bg-orange-500 hover:bg-orange-600"
+                                >
+                                  Practice This Exercise
+                                </Button>
+                              </div>
+                            </>
                           )}
                         </div>
                       )}
@@ -196,7 +293,11 @@ export default function Page({ params }: PageProps) {
                       {section.type === "keyboard" && (
                         <div className="bg-gray-50 p-4 rounded-lg">
                           <Keyboard />
-                          {section.note && <p className="mt-4 text-sm text-gray-600 italic">{section.note}</p>}
+                          {section.note && (
+                            <p className="mt-4 text-sm text-gray-600 italic">
+                              {section.note}
+                            </p>
+                          )}
                         </div>
                       )}
                     </div>
@@ -204,7 +305,9 @@ export default function Page({ params }: PageProps) {
 
                 {pageData.tips && (
                   <div className="mt-8 p-6 bg-orange-50 rounded-lg border-2 border-orange-200">
-                    <h3 className="text-xl font-bold text-purple-600 mb-4">{pageData.tips.title}</h3>
+                    <h3 className="text-xl font-bold text-purple-600 mb-4">
+                      {pageData.tips.title}
+                    </h3>
                     <ol className="list-decimal pl-6 space-y-2">
                       {pageData.tips.items.map((tip, i) => (
                         <li key={i}>{tip}</li>
@@ -237,7 +340,9 @@ export default function Page({ params }: PageProps) {
               key={index}
               onClick={() => goToPage(index + 1)}
               className={`w-8 h-8 rounded-full flex items-center justify-center ${
-                currentPage === index + 1 ? "bg-white text-purple-600" : "bg-purple-700 text-white"
+                currentPage === index + 1
+                  ? "bg-white text-purple-600"
+                  : "bg-purple-700 text-white"
               }`}
             >
               {index + 1}
@@ -265,6 +370,16 @@ export default function Page({ params }: PageProps) {
           Colophon
         </Link>
       </div>
+
+      {/* Practice Mode */}
+      {practiceMode && (
+        <PracticeMode
+          content={practiceContent}
+          onClose={() => setPracticeMode(false)}
+          pageNumber={currentPage}
+          exerciseTitle={currentExerciseTitle}
+        />
+      )}
     </main>
   )
 }

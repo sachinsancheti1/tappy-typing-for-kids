@@ -1,14 +1,14 @@
 // app/page.tsx
-export const dynamic = 'force-static'; // ensures this page is prerendered at build time
+export const dynamic = "force-static" // ensures this page is prerendered at build time
 
-import { headers } from 'next/headers'
-import Link from 'next/link'
-import type { Metadata } from 'next'
-import ContactForm from './ContactForm'  // see next section
+import { headers } from "next/headers"
+import Link from "next/link"
+import type { Metadata } from "next"
+import ContactForm from "./ContactForm" // see next section
 
 export const metadata: Metadata = {
-  title: 'Contact Us – Typing for Kids',
-  description: 'Get in touch with the Typing for Kids team',
+  title: "Contact Us – Typing for Kids",
+  description: "Get in touch with the Typing for Kids team",
 }
 
 interface PageProps {
@@ -16,17 +16,20 @@ interface PageProps {
 }
 
 export default function ContactPage({ searchParams }: PageProps) {
-  const isSuccess = searchParams.success === 'true'
+  const isSuccess = searchParams.success === "true"
 
   // Get domain on the server
   const h = headers()
-  const host = h.get('x-forwarded-host') ?? h.get('host') ?? 'tappytyping.com'
-  const domain = host.split(':')[0]
+  const host = h.get("x-forwarded-host") ?? h.get("host") ?? "tappytyping.com"
+  const domain = host.split(":")[0]
 
   return (
     <main className="min-h-screen bg-orange-50">
       <div className="max-w-4xl mx-auto p-6 py-12">
-        <Link href="/" className="text-orange-500 hover:underline mb-8 inline-block">
+        <Link
+          href="/"
+          className="text-orange-500 hover:underline mb-8 inline-block"
+        >
           &larr; Back to Home
         </Link>
 
@@ -40,12 +43,12 @@ export default function ContactPage({ searchParams }: PageProps) {
                 We’d Love to Hear From You
               </h2>
               <p className="mb-4">
-                Have questions about our typing lessons? Want to share feedback or
-                suggestions? Use the form to get in touch.
+                Have questions about our typing lessons? Want to share feedback
+                or suggestions? Use the form to get in touch.
               </p>
               <p>
-                Our team is dedicated to helping children learn typing skills in a
-                fun and engaging way.
+                Our team is dedicated to helping children learn typing skills in
+                a fun and engaging way.
               </p>
             </div>
           </div>

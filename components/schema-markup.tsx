@@ -14,8 +14,12 @@ export function SchemaMarkup() {
   }, [])
 
   // Set the canonical and alternate domains
-  const canonicalDomain = isPrimaryDomain ? "https://tappytyping.com" : "https://learntyping.fun"
-  const alternateDomain = isPrimaryDomain ? "https://learntyping.fun" : "https://tappytyping.com"
+  const canonicalDomain = isPrimaryDomain
+    ? "https://tappytyping.com"
+    : "https://learntyping.fun"
+  const alternateDomain = isPrimaryDomain
+    ? "https://learntyping.fun"
+    : "https://tappytyping.com"
 
   const websiteSchema = {
     "@context": "https://schema.org",
@@ -50,7 +54,8 @@ export function SchemaMarkup() {
     "@context": "https://schema.org",
     "@type": "Course",
     name: "Typing for Kids",
-    description: "An interactive typing course designed for children to learn typing skills through fun exercises",
+    description:
+      "An interactive typing course designed for children to learn typing skills through fun exercises",
     provider: {
       "@type": "Organization",
       name: "Typing for Kids",
@@ -64,15 +69,50 @@ export function SchemaMarkup() {
     teaches: "Touch typing skills for children",
   }
 
+  // Add LearningResource schema for the typing practice
+  const learningResourceSchema = {
+    "@context": "https://schema.org",
+    "@type": "LearningResource",
+    name: "Interactive Typing Practice",
+    description:
+      "Practice typing with real-time feedback and track your progress",
+    learningResourceType: "Interactive Exercise",
+    educationalUse: "Practice",
+    interactivityType: "Active",
+    isAccessibleForFree: true,
+    provider: {
+      "@type": "Organization",
+      name: "Typing for Kids",
+      sameAs: canonicalDomain,
+    },
+  }
+
   return (
     <>
       {currentDomain && (
         <>
           <link rel="canonical" href={canonicalDomain} />
           <link rel="alternate" href={alternateDomain} />
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
-          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }} />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(organizationSchema),
+            }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(courseSchema) }}
+          />
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{
+              __html: JSON.stringify(learningResourceSchema),
+            }}
+          />
         </>
       )}
     </>

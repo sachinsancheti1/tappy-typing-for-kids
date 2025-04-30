@@ -1,10 +1,10 @@
-import { favicons } from "favicons";
-import fs from "fs/promises";
-import path from "path";
+import { favicons } from "favicons"
+import fs from "fs/promises"
+import path from "path"
 
-const src = "./public/images/tappy-square.png"; // Icon source file path.
-const dest = "./public"; // Output directory path.
-const htmlBasename = "index.html"; // HTML file basename.
+const src = "./public/images/tappy-square.png" // Icon source file path.
+const dest = "./public" // Output directory path.
+const htmlBasename = "index.html" // HTML file basename.
 
 const configuration = {
   path: "/public", // Path for overriding default icons path. `string`
@@ -43,22 +43,22 @@ const configuration = {
     favicons: true, // Create regular favicons. `boolean` or `{ offset, background }` or an array of sources
     windows: true, // Create Windows 8 tile icons. `boolean` or `{ offset, background }` or an array of sources
     yandex: true, // Create Yandex browser icon. `boolean` or `{ offset, background }` or an array of sources
-  }
-};
+  },
+}
 
 // Below is the processing.
-const response = await favicons(src, configuration);
-await fs.mkdir(dest, { recursive: true });
+const response = await favicons(src, configuration)
+await fs.mkdir(dest, { recursive: true })
 await Promise.all(
   response.images.map(
     async (image) =>
-      await fs.writeFile(path.join(dest, image.name), image.contents),
-  ),
-);
+      await fs.writeFile(path.join(dest, image.name), image.contents)
+  )
+)
 await Promise.all(
   response.files.map(
     async (file) =>
-      await fs.writeFile(path.join(dest, file.name), file.contents),
-  ),
-);
-await fs.writeFile(path.join(dest, htmlBasename), response.html.join("\n"));
+      await fs.writeFile(path.join(dest, file.name), file.contents)
+  )
+)
+await fs.writeFile(path.join(dest, htmlBasename), response.html.join("\n"))

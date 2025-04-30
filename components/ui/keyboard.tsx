@@ -37,7 +37,9 @@ export function Keyboard() {
           <div className="key w-10 h-10 md:w-12 md:h-12 bg-gray-200 rounded flex items-center justify-center mr-1">
             0
           </div>
-          <div className="key w-10 h-10 md:w-12 md:h-12 bg-gray-200 rounded flex items-center justify-center">-</div>
+          <div className="key w-10 h-10 md:w-12 md:h-12 bg-gray-200 rounded flex items-center justify-center">
+            -
+          </div>
         </div>
 
         {/* Row 2 */}
@@ -72,7 +74,9 @@ export function Keyboard() {
           <div className="key w-10 h-10 md:w-12 md:h-12 bg-gray-200 rounded flex items-center justify-center mr-1">
             P
           </div>
-          <div className="key w-10 h-10 md:w-12 md:h-12 bg-gray-200 rounded flex items-center justify-center">[</div>
+          <div className="key w-10 h-10 md:w-12 md:h-12 bg-gray-200 rounded flex items-center justify-center">
+            [
+          </div>
         </div>
 
         {/* Row 3 - Home Row */}
@@ -157,7 +161,10 @@ export function Keyboard() {
         </div>
 
         <div className="mt-4 text-center text-sm text-gray-600">
-          <p>Home row keys are highlighted. Always return your fingers to these keys.</p>
+          <p>
+            Home row keys are highlighted. Always return your fingers to these
+            keys.
+          </p>
         </div>
       </div>
     </div>
