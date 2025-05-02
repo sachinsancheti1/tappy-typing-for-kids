@@ -49,7 +49,7 @@ export default function ProgressPage() {
           <div className="flex items-center gap-2">
             <Link href="/">
               <Image
-                src="/images/tappy-icon.png"
+                src="/images/tappy-icon.jpg"
                 alt="Tappy the Typing Cat"
                 width={40}
                 height={40}

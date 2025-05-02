@@ -11,6 +11,7 @@ import type { PageData } from "@/types/page"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { PracticeMode } from "@/components/practice-mode"
+import { KeyboardShortcutsHelp } from "@/components/keyboard-shortcuts-help"
 
 interface PageProps {
   params: { page: string }
@@ -124,6 +125,8 @@ export default function Page({ params }: PageProps) {
             >
               Colophon
             </Link>
+            <span className="text-white/60">|</span>
+            <KeyboardShortcutsHelp />
           </div>
         </div>
       </header>

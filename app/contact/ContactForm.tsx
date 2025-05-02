@@ -25,9 +25,7 @@ export default function ContactForm({ domain }: Props) {
     try {
       const res = await fetch("/__forms.html", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/x-www-form-urlencoded",
-        },
+        headers: { "Content-Type": "application/x-www-form-urlencoded" },
         body: new URLSearchParams(formData as any).toString(),
       })
       if (res.ok) {

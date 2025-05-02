@@ -47,7 +47,7 @@
       X-XSS-Protection        = "1; mode=block"
       X-Content-Type-Options  = "nosniff"
       Referrer-Policy         = "strict-origin-when-cross-origin"
-      Link                    = "</images/tappy-icon.png>; rel=preload; as=image"
+      Link                    = "</images/tappy-icon.jpg>; rel=preload; as=image"
 
 # ──────────────────────────────────────────────────────────────────────────────
 # Deploy-preview context: same headers + Lighthouse env

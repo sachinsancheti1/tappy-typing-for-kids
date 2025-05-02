@@ -41,7 +41,7 @@ export function SchemaMarkup() {
     "@type": "Organization",
     name: "Typing for Kids",
     url: canonicalDomain,
-    logo: `${canonicalDomain}/images/tappy-icon.png`,
+    logo: `${canonicalDomain}/images/tappy-icon.jpg`,
     sameAs: [
       alternateDomain,
       "https://twitter.com/typingforkids",

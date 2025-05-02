@@ -1,7 +1,6 @@
 "use client"
 
 import type React from "react"
-
 import {
   useState,
   useEffect,
@@ -14,33 +13,34 @@ import { cn } from "@/lib/utils"
 interface TypingPracticeProps {
   text: string
   onComplete?: (accuracy: number, wpm: number) => void
+  autoAdvance?: boolean
+  autoAdvanceDelay?: number
 }
 
 export type TypingPracticeRef = {
   reset: () => void
+  focus: () => void
 }
 
 export const TypingPractice = forwardRef<
   TypingPracticeRef,
   TypingPracticeProps
->(({ text, onComplete }, ref) => {
+>(({ text, onComplete, autoAdvance = true, autoAdvanceDelay = 500 }, ref) => {
   const [input, setInput] = useState("")
   const [startTime, setStartTime] = useState<number | null>(null)
   const [endTime, setEndTime] = useState<number | null>(null)
   const [currentIndex, setCurrentIndex] = useState(0)
   const [errors, setErrors] = useState(0)
   const [isCompleted, setIsCompleted] = useState(false)
+  const [hasCalledComplete, setHasCalledComplete] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
 
-  // Expose the reset method to parent components
+  // Expose methods to parent components
   useImperativeHandle(ref, () => ({
     reset: () => {
-      setInput("")
-      setStartTime(null)
-      setEndTime(null)
-      setCurrentIndex(0)
-      setErrors(0)
-      setIsCompleted(false)
+      resetPractice()
+    },
+    focus: () => {
       if (inputRef.current) {
         inputRef.current.focus()
       }
@@ -53,6 +53,36 @@ export const TypingPractice = forwardRef<
       inputRef.current.focus()
     }
   }, [])
+
+  // Handle keyboard shortcuts
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Escape or Ctrl+R to reset
+      if (e.key === "Escape" || (e.ctrlKey && e.key === "r")) {
+        e.preventDefault()
+        resetPractice()
+      }
+    }
+
+    window.addEventListener("keydown", handleKeyDown)
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown)
+    }
+  }, [])
+
+  // Handle completion and auto-advance
+  useEffect(() => {
+    // Only proceed if completed and we haven't called onComplete yet
+    if (isCompleted && !hasCalledComplete && onComplete) {
+      const { wpm, accuracy } = calculateMetrics()
+
+      // Mark that we've called onComplete to prevent infinite loop
+      setHasCalledComplete(true)
+
+      // Call onComplete with the metrics
+      onComplete(accuracy, wpm)
+    }
+  }, [isCompleted, hasCalledComplete, onComplete])
 
   // Handle input changes
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
@@ -78,19 +108,6 @@ export const TypingPractice = forwardRef<
     if (value.length === text.length) {
       setEndTime(Date.now())
       setIsCompleted(true)
-
-      // Calculate metrics
-      const timeInMinutes = (Date.now() - (startTime || Date.now())) / 60000
-      const wordsTyped = text.split(" ").length
-      const wpm = Math.round(wordsTyped / timeInMinutes)
-      const accuracy = Math.max(
-        0,
-        Math.round(100 - (errors / text.length) * 100)
-      )
-
-      if (onComplete) {
-        onComplete(accuracy, wpm)
-      }
     }
 
     setInput(value)
@@ -104,6 +121,7 @@ export const TypingPractice = forwardRef<
     setCurrentIndex(0)
     setErrors(0)
     setIsCompleted(false)
+    setHasCalledComplete(false)
     if (inputRef.current) {
       inputRef.current.focus()
     }
@@ -114,7 +132,7 @@ export const TypingPractice = forwardRef<
     if (!startTime) return { wpm: 0, accuracy: 100 }
 
     const timeInMinutes = ((endTime || Date.now()) - startTime) / 60000
-    const wordsTyped = input.split(" ").length
+    const wordsTyped = text.split(" ").length
     const wpm = Math.round(wordsTyped / timeInMinutes) || 0
     const accuracy = Math.max(
       0,
@@ -128,7 +146,7 @@ export const TypingPractice = forwardRef<
 
   return (
     <div className="w-full max-w-3xl mx-auto bg-white p-6 rounded-lg shadow-md">
-      <div className="mb-6 font-mono text-lg bg-gray-50 p-4 rounded-lg">
+      <div className="mb-6 font-mono text-lg bg-gray-50 p-4 rounded-lg min-h-[100px]">
         {text.split("").map((char, index) => {
           let className = ""
 
@@ -188,7 +206,8 @@ export const TypingPractice = forwardRef<
         <button
           onClick={resetPractice}
           className="px-4 py-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition-colors"
-          aria-label="Reset typing practice"
+          aria-label="Reset typing practice (Esc or Ctrl+R)"
+          title="Reset typing practice (Esc or Ctrl+R)"
         >
           Reset
         </button>
@@ -199,6 +218,9 @@ export const TypingPractice = forwardRef<
           <h3 className="font-bold text-green-800">Practice Complete!</h3>
           <p className="text-green-700">
             You typed at {wpm} WPM with {accuracy}% accuracy.
+            {autoAdvance && (
+              <span className="ml-2">Advancing to next exercise...</span>
+            )}
           </p>
         </div>
       )}

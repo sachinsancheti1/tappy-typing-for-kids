@@ -21,7 +21,7 @@ export default function NotFound() {
           </p>
           <div className="w-32 h-32 mx-auto mb-6">
             <img
-              src="/images/tappy-icon.png"
+              src="/images/tappy-icon.jpg"
               alt="Tappy the Typing Cat is confused"
               className="w-full h-full object-contain"
             />
