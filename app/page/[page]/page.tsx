@@ -65,7 +65,7 @@ export default function Page({ params }: PageProps) {
         <header className="flex justify-between items-center p-4 bg-orange-400 text-white">
           <div className="flex items-center gap-2">
             <Image
-              src="/images/tappy-icon.png"
+              src="/images/tappy-icon.jpg"
               alt="Tappy the Typing Cat"
               width={40}
               height={40}
@@ -91,7 +91,7 @@ export default function Page({ params }: PageProps) {
         <div className="flex items-center gap-2">
           <Link href="/">
             <Image
-              src="/images/tappy-icon.png"
+              src="/images/tappy-icon.jpg"
               alt="Tappy the Typing Cat"
               width={40}
               height={40}
