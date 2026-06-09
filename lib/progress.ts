@@ -9,6 +9,20 @@ export interface TypingResult {
 
 // Local storage key
 const PROGRESS_KEY = "typing_progress"
+const LAST_PAGE_KEY = "typing_last_page"
+
+export function saveLastPage(pageNumber: number): void {
+  if (typeof window === "undefined") return
+  localStorage.setItem(LAST_PAGE_KEY, String(pageNumber))
+}
+
+export function getLastPage(): number | null {
+  if (typeof window === "undefined") return null
+  const stored = localStorage.getItem(LAST_PAGE_KEY)
+  if (!stored) return null
+  const n = parseInt(stored, 10)
+  return isNaN(n) ? null : n
+}
 
 // Save a typing result
 export function saveTypingResult(

@@ -7,6 +7,7 @@ import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Decorative } from "@/components/ui/decorative"
 import { Keyboard } from "@/components/ui/keyboard"
 import { getAllPageSlugs, getPageData } from "@/lib/data"
+import { saveLastPage } from "@/lib/progress"
 import type { PageData } from "@/types/page"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
@@ -35,6 +36,8 @@ export default function Page({ params }: PageProps) {
     const data = getPageData(currentPage)
     setPageData(data)
     setLoading(false)
+
+    saveLastPage(currentPage)
   }, [currentPage])
 
   const nextPage = () => {

@@ -1,12 +1,8 @@
 // Service Worker for offline functionality
 
-const CACHE_NAME = "typing-book-cache-v1"
+const CACHE_NAME = "typing-book-cache-v2"
 const urlsToCache = [
-  "/",
-  "/page/1",
-  "/progress",
   "/images/tappy-icon.jpg",
-  "/styles/globals.css",
 ]
 
 self.addEventListener("install", (event) => {
