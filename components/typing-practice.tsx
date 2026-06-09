@@ -34,19 +34,22 @@ export const TypingPractice = forwardRef<
   const [isCompleted, setIsCompleted] = useState(false)
   const [hasCalledComplete, setHasCalledComplete] = useState(false)
   const inputRef = useRef<HTMLInputElement>(null)
+  const currentCharRef = useRef<HTMLSpanElement | null>(null)
 
   useImperativeHandle(ref, () => ({
-    reset: () => {
-      resetPractice()
-    },
-    focus: () => {
-      inputRef.current?.focus()
-    },
+    reset: () => resetPractice(),
+    focus: () => inputRef.current?.focus(),
   }))
 
+  // Focus input on mount
   useEffect(() => {
     inputRef.current?.focus()
   }, [])
+
+  // Scroll the current character into view as the user advances through the text
+  useEffect(() => {
+    currentCharRef.current?.scrollIntoView({ block: "nearest", behavior: "smooth" })
+  }, [currentIndex])
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -118,7 +121,10 @@ export const TypingPractice = forwardRef<
       <div
         role="region"
         aria-label="Text to type"
-        className="mb-6 font-mono text-lg bg-gray-50 p-4 rounded-lg min-h-25"
+        // Fixed height with vertical scroll — keeps the modal stable for long texts.
+        // overflow-x-hidden + break-words prevents horizontal overflow from
+        // long unbroken words in monospace.
+        className="mb-6 font-mono text-lg bg-gray-50 p-4 rounded-lg h-48 overflow-y-auto overflow-x-hidden wrap-break-word"
       >
         {text.split("").map((char, index) => {
           let className = ""
@@ -131,15 +137,18 @@ export const TypingPractice = forwardRef<
             className = "bg-yellow-200"
           }
           return (
-            <span key={index} className={className}>
-              {char === " " ? " " : char}
+            <span
+              key={index}
+              ref={index === currentIndex ? currentCharRef : null}
+              className={className}
+            >
+              {char === " " ? " " : char}
             </span>
           )
         })}
       </div>
 
       <div className="mb-4">
-        {/* readOnly instead of disabled keeps focus inside the modal when an exercise completes */}
         <input
           ref={inputRef}
           type="text"
@@ -159,12 +168,10 @@ export const TypingPractice = forwardRef<
       <div className="flex justify-between items-center" aria-live="polite">
         <div className="flex gap-4">
           <div className="text-sm">
-            <span className="font-bold">WPM:</span>{" "}
-            <span>{wpm}</span>
+            <span className="font-bold">WPM:</span> <span>{wpm}</span>
           </div>
           <div className="text-sm">
-            <span className="font-bold">Accuracy:</span>{" "}
-            <span>{accuracy}%</span>
+            <span className="font-bold">Accuracy:</span> <span>{accuracy}%</span>
           </div>
           <div className="text-sm">
             <span className="font-bold">Progress:</span>{" "}
