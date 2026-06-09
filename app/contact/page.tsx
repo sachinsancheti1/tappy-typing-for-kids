@@ -12,14 +12,15 @@ export const metadata: Metadata = {
 }
 
 interface PageProps {
-  searchParams: { success?: string }
+  searchParams: Promise<{ success?: string }>
 }
 
-export default function ContactPage({ searchParams }: PageProps) {
-  const isSuccess = searchParams.success === "true"
+export default async function ContactPage({ searchParams }: PageProps) {
+  const { success } = await searchParams
+  const isSuccess = success === "true"
 
   // Get domain on the server
-  const h = headers()
+  const h = await headers()
   const host = h.get("x-forwarded-host") ?? h.get("host") ?? "tappytyping.com"
   const domain = host.split(":")[0]
 

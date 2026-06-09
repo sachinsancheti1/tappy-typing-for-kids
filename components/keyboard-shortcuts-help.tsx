@@ -2,7 +2,7 @@
 
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
-import { HelpCircle, X } from "lucide-react"
+import { CircleHelp, X } from "lucide-react"
 
 export function KeyboardShortcutsHelp() {
   const [isOpen, setIsOpen] = useState(false)
@@ -16,7 +16,7 @@ export function KeyboardShortcutsHelp() {
         onClick={() => setIsOpen(true)}
         title="Keyboard Shortcuts"
       >
-        <HelpCircle size={16} />
+        <CircleHelp size={16} />
         <span>Keyboard Shortcuts</span>
       </Button>
 
