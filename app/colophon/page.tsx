@@ -13,12 +13,12 @@ export default function Colophon() {
       <div className="max-w-4xl mx-auto p-6 py-12">
         <Link
           href="/"
-          className="text-orange-500 hover:underline mb-8 inline-block"
+          className="text-orange-600 hover:underline mb-8 inline-block"
         >
           &larr; Back to Home
         </Link>
 
-        <h1 className="text-4xl font-bold text-orange-500 mb-8">Colophon</h1>
+        <h1 className="text-4xl font-bold text-orange-600 mb-8">Colophon</h1>
 
         <div className="bg-white p-8 rounded-lg shadow-md">
           <h2 className="text-2xl font-bold text-purple-600 mt-4 mb-4">
@@ -38,7 +38,7 @@ export default function Colophon() {
             This website was built using the following technologies:
           </p>
 
-          <h3 className="text-xl font-bold text-orange-500 mt-6 mb-3">
+          <h3 className="text-xl font-bold text-orange-600 mt-6 mb-3">
             Framework
           </h3>
           <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -47,7 +47,7 @@ export default function Colophon() {
             <li>TypeScript - A typed superset of JavaScript</li>
           </ul>
 
-          <h3 className="text-xl font-bold text-orange-500 mt-6 mb-3">
+          <h3 className="text-xl font-bold text-orange-600 mt-6 mb-3">
             Styling
           </h3>
           <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -55,7 +55,7 @@ export default function Colophon() {
             <li>Lucide React - A set of beautiful, consistent icons</li>
           </ul>
 
-          <h3 className="text-xl font-bold text-orange-500 mt-6 mb-3">
+          <h3 className="text-xl font-bold text-orange-600 mt-6 mb-3">
             Deployment & Hosting
           </h3>
           <ul className="list-disc pl-6 mb-4 space-y-2">
@@ -63,7 +63,7 @@ export default function Colophon() {
             <li>GitHub - For version control and code hosting</li>
           </ul>
 
-          <h3 className="text-xl font-bold text-orange-500 mt-6 mb-3">
+          <h3 className="text-xl font-bold text-orange-600 mt-6 mb-3">
             Analytics & Monitoring
           </h3>
           <ul className="list-disc pl-6 mb-4 space-y-2">

@@ -59,7 +59,7 @@ export function ProgressDashboard() {
 
   return (
     <div className="bg-white p-6 rounded-lg shadow-md">
-      <h2 className="text-2xl font-bold text-orange-500 mb-6">
+      <h2 className="text-2xl font-bold text-orange-600 mb-6">
         Your Typing Progress
       </h2>
 
@@ -70,7 +70,7 @@ export function ProgressDashboard() {
               <h3 className="text-lg font-semibold text-orange-700 mb-2">
                 Exercises Completed
               </h3>
-              <p className="text-3xl font-bold text-orange-500">
+              <p className="text-3xl font-bold text-orange-600">
                 {results.length}
               </p>
             </div>
@@ -79,14 +79,14 @@ export function ProgressDashboard() {
               <h3 className="text-lg font-semibold text-orange-700 mb-2">
                 Average WPM
               </h3>
-              <p className="text-3xl font-bold text-orange-500">{averageWpm}</p>
+              <p className="text-3xl font-bold text-orange-600">{averageWpm}</p>
             </div>
 
             <div className="bg-orange-50 p-4 rounded-lg text-center">
               <h3 className="text-lg font-semibold text-orange-700 mb-2">
                 Average Accuracy
               </h3>
-              <p className="text-3xl font-bold text-orange-500">
+              <p className="text-3xl font-bold text-orange-600">
                 {averageAccuracy}%
               </p>
             </div>

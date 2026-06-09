@@ -1,6 +1,6 @@
 export function Keyboard() {
   return (
-    <div className="font-mono text-sm md:text-base">
+    <div aria-hidden="true" className="font-mono text-sm md:text-base">
       <div className="keyboard-container w-full max-w-3xl mx-auto">
         {/* Row 1 */}
         <div className="flex justify-center mb-2">

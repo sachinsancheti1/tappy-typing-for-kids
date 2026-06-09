@@ -1,7 +1,7 @@
 "use client"
 
-import { useState, useEffect, use } from "react"
-import { useRouter } from "next/navigation"
+import { useState, useEffect } from "react"
+import { useRouter, useParams } from "next/navigation"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
 import { Decorative } from "@/components/ui/decorative"
@@ -14,13 +14,9 @@ import { Button } from "@/components/ui/button"
 import { PracticeMode } from "@/components/practice-mode"
 import { KeyboardShortcutsHelp } from "@/components/keyboard-shortcuts-help"
 
-interface PageProps {
-  params: Promise<{ page: string }>
-}
-
-export default function Page({ params }: PageProps) {
-  const { page } = use(params)
-  const currentPage = Number.parseInt(page, 10)
+export default function Page() {
+  const params = useParams()
+  const currentPage = Number.parseInt(params.page as string, 10)
 
   const [pageData, setPageData] = useState<PageData | null>(null)
   const [totalPages, setTotalPages] = useState(0)
@@ -66,7 +62,7 @@ export default function Page({ params }: PageProps) {
   if (loading || !pageData) {
     return (
       <main className="h-screen w-screen flex flex-col bg-orange-100 overflow-hidden">
-        <header className="flex justify-between items-center p-4 bg-orange-400 text-white">
+        <header className="flex justify-between items-center p-4 bg-orange-600 text-white">
           <div className="flex items-center gap-2">
             <Image
               src="/images/tappy-icon.jpg"
@@ -91,7 +87,7 @@ export default function Page({ params }: PageProps) {
   return (
     <main className="h-screen w-screen flex flex-col bg-orange-100 overflow-hidden">
       {/* Header */}
-      <header className="flex justify-between items-center p-4 bg-orange-400 text-white">
+      <header className="flex justify-between items-center p-4 bg-orange-600 text-white">
         <div className="flex items-center gap-2">
           <Link href="/">
             <Image
@@ -346,6 +342,8 @@ export default function Page({ params }: PageProps) {
             <button
               key={index}
               onClick={() => goToPage(index + 1)}
+              aria-label={`Go to page ${index + 1}`}
+              aria-current={currentPage === index + 1 ? "page" : undefined}
               className={`w-8 h-8 rounded-full flex items-center justify-center ${
                 currentPage === index + 1
                   ? "bg-white text-purple-600"
@@ -368,7 +366,7 @@ export default function Page({ params }: PageProps) {
       </div>
 
       {/* Footer for mobile */}
-      <div className="md:hidden flex justify-center items-center p-2 bg-orange-400 text-white text-xs">
+      <div className="md:hidden flex justify-center items-center p-2 bg-orange-600 text-white text-xs">
         <Link href="/privacy-policy" className="mx-2 hover:underline">
           Privacy Policy
         </Link>

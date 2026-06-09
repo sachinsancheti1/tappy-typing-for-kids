@@ -29,12 +29,12 @@ export default async function ContactPage({ searchParams }: PageProps) {
       <div className="max-w-4xl mx-auto p-6 py-12">
         <Link
           href="/"
-          className="text-orange-500 hover:underline mb-8 inline-block"
+          className="text-orange-600 hover:underline mb-8 inline-block"
         >
           &larr; Back to Home
         </Link>
 
-        <h1 className="text-4xl font-bold text-orange-500 mb-8">Contact Us</h1>
+        <h1 className="text-4xl font-bold text-orange-600 mb-8">Contact Us</h1>
 
         <div className="grid md:grid-cols-2 gap-8">
           {/* ————— Left column: Intro & Social ————— */}
@@ -57,7 +57,7 @@ export default async function ContactPage({ searchParams }: PageProps) {
           {/* ————— Right column: Form or Thank-You ————— */}
           {isSuccess ? (
             <div className="bg-white p-6 rounded-lg shadow-md text-center">
-              <h2 className="text-2xl font-bold text-orange-500 mb-4">
+              <h2 className="text-2xl font-bold text-orange-600 mb-4">
                 Thanks for reaching out!
               </h2>
               <p className="text-gray-700">
