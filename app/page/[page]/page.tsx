@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, use } from "react"
 import { useRouter } from "next/navigation"
 import Image from "next/image"
 import { ChevronLeft, ChevronRight } from "lucide-react"
@@ -15,11 +15,12 @@ import { PracticeMode } from "@/components/practice-mode"
 import { KeyboardShortcutsHelp } from "@/components/keyboard-shortcuts-help"
 
 interface PageProps {
-  params: { page: string }
+  params: Promise<{ page: string }>
 }
 
 export default function Page({ params }: PageProps) {
-  const currentPage = Number.parseInt(params.page, 10)
+  const { page } = use(params)
+  const currentPage = Number.parseInt(page, 10)
 
   const [pageData, setPageData] = useState<PageData | null>(null)
   const [totalPages, setTotalPages] = useState(0)
